@@ -1,10 +1,7 @@
 ---
 title: Container Internet Access Or DNS Resolving Problem
-date: "2020-12-26T22:12:03.284Z"
-description: "In this post I'll help make a quick troubleshooting, 
-to see if you are having a DNS resolving problem or something else and provide a fix for it on CentOS 8. 
-This guide could also be used for Linux, macOS or Windows. 
-You just need to know what are the commands alternatives."
+date: "2020-05-15T22:12:03.284Z"
+description: "Solving containers DNS resolving problem or internet access on CentOS."
 ---
 
 ![Docker on CentOS/RHEL](./centos-docker.png)
@@ -83,10 +80,9 @@ The firewall is blocking `docker0` network interface. You can enable it by:
 > sudo firewall-cmd –permanent –zone=trusted –add-interface=docker0 && sudo firewall-cmd –reload
 ```
 ## Last words
-**If you are planning on using swarm or a docker created network, you might face the same problem again because they will use another network interface than `docker0`.**
+**If you are planning on using swarm or a docker created network, you might face the same problem again because they will use another network interface than `docker0`.** 
 
-<br/>
-<br/>
+
 
 
 #### Hope that helped!

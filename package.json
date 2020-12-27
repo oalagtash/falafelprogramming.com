@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "falafel-programming",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Blog for programmers and DevOps",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Oweis Alagtash <oweis.agtash@gmail.com",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://to-be-implemented.soon"
   },
   "dependencies": {
     "gatsby": "^2.25.3",
@@ -34,16 +34,11 @@
   "devDependencies": {
     "prettier": "2.1.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://falafelprogramming.com",
   "keywords": [
-    "gatsby"
+    "blog-keyword"
   ],
   "license": "0BSD",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

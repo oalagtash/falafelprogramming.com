@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Falafel Programming Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Oweis Alagtash`,
+      summary: `I am a software developer and DevOps engineer in Frankfurt. I enjoy programming, DevOps stuff, cycling and eating falafel. Also, I am crazy about containerizing any application I see.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `This blog is all about programming and DevOps. Here I share my knowledge, thoughts and real world use cases tutorials with you.`,
+    siteUrl: `https://falafelprogramming.com`,
     social: {
-      twitter: `kylemathews`,
+      linkedin: `oweis-al-agtash-b2010b101`,
     },
   },
   plugins: [
@@ -66,7 +66,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/falafelprogramming-logo.png`,
       },
     },
     `gatsby-plugin-react-helmet`,

@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import HeaderImage from "./header-image"
+import MainMenuStyles from "../styles/main-menu.module.css"
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -8,35 +9,44 @@ const ListLink = props => (
   </li>
 )
 
-export default function Header(){
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
+const MainMenu = ({ location, title, children }) => {
+  // const rootPath = `${__PATH_PREFIX__}/`
+  // const isRootPath = location.pathname === rootPath
   let header
 
 
-  if (isRootPath) {
-    header = (
-      <div style={{ position: "absolute" }}>
-        <header style={{ marginBottom: `1.5rem` }}>
-          <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
+  // if (isRootPath) {
+  header = (
+    <div>
+      <header>
+        <Link to="/">
+          <div className={MainMenuStyles.mainMenuLogo}>
             <HeaderImage/>
-          </Link>
-          <ul style={{ listStyle: `none`, float: `right` }}>
-            <ListLink to="/">Home</ListLink>
-            <ListLink to="/about/">About</ListLink>
-            <ListLink to="/contact/">Contact</ListLink>
+          </div>
+          <div className={MainMenuStyles.mainMenuWebsiteNameContainer}>
+            <div className={MainMenuStyles.mainMenuWebsiteNameOne}>Falafel</div>
+            <div className={MainMenuStyles.mainMenuWebsiteNameTwo}>Programming</div>
+          </div>
+        </Link>
+        <div className={MainMenuStyles.mainMenuRight}>
+          <ul>
+            <ListLink to="/">Blog</ListLink>
           </ul>
-        </header>
-      </div>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
+        </div>
+      </header>
+    </div>
+  )
+  // } else {
+  //   header = (
+  //     <Link className="header-link-home" to="/">
+  //       {title}
+  //     </Link>
+  //   )
+  // }
 
-  return (<header className="global-header">{header}</header>)
-
+  return (
+    <header className={MainMenuStyles.mainMenu}>{header}</header>
+  )
 }
+
+export default MainMenu
