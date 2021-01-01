@@ -4,7 +4,7 @@ import HeaderImage from "./header-image"
 import MainMenuStyles from "../styles/main-menu.module.css"
 
 const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+  <li style={{ display: `inline-block`, marginRight: `1rem`}}>
     <Link to={props.to}>{props.children}</Link>
   </li>
 )

@@ -6,8 +6,9 @@
  */
 
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
+import SocialMedia from "./social-media-links"
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -36,7 +37,6 @@ const About = () => {
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social
-
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
@@ -48,25 +48,28 @@ const About = () => {
             alt={author?.name || ``}
             className="about-avatar"
             imgStyle={{
-              borderRadius: `50%`,
+              borderRadius: `50%`
             }}
           />
         )}
       </div>
+      <SocialMedia />
       <div>
         {author?.name && (
           <p>
-            Hi, I am <strong>{author.name}</strong>, the author of this blog. <br/>
+            Hi, I am <strong>{author.name}</strong>, the author of this blog. <br />
             {author?.summary || null}
             {` `}
-            <a  href={`https://www.linkedin.com/in/${social?.linkedin || ``}`}>
+            <a href={`${social?.linkedin || ``}`}>
               You should connect with me on LinkedIn
             </a>
           </p>
         )}
         <p>
-          This is my personal blog where I share my knowledge, thoughts, real world use cases and tutorials with you.<br/>
-          It is supposed to be all about programming, DevOps and Machine Learning, but you might stumble on off topic posts like a falafel recipe... <br/>
+          This is my personal blog where I share my knowledge, thoughts, real world use cases and tutorials with
+          you.<br />
+          It is supposed to be all about programming, DevOps and Machine Learning, but you might stumble on off topic
+          posts like a falafel recipe... <br />
         </p>
       </div>
     </div>

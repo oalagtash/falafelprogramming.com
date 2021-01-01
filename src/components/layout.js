@@ -1,6 +1,6 @@
 import React from "react"
 import MainMenu from "./main-menu"
-
+import Footer from "./footer"
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
@@ -10,12 +10,7 @@ const Layout = ({ location, title, children }) => {
       <MainMenu location={location} title={title} />
       <div className="global-wrapper" data-is-root-path={isRootPath}>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()} {` `} <a href="https://www.falafelprogramming.com">Falafel Programming</a>
-          , Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        <Footer/>
       </div>
     </div>
 

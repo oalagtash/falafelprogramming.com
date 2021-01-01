@@ -1,5 +1,7 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
+
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -9,6 +11,8 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+
+  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -23,8 +27,9 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p style={{color:"var(--falafel-color)"}}>{post.frontmatter.date}</p>
+          <p style={{ color: "var(--falafel-color-highcontrast)" }}>{post.frontmatter.date}</p>
         </header>
+        <Img fluid={featuredImgFluid} itemProp="image"/>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
@@ -41,7 +46,7 @@ const BlogPostTemplate = ({ data, location }) => {
             flexWrap: `wrap`,
             justifyContent: `space-between`,
             listStyle: `none`,
-            padding: 0,
+            padding: 0
           }}
         >
           <li>
@@ -67,41 +72,48 @@ const BlogPostTemplate = ({ data, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
-    site {
-      siteMetadata {
-        title
-      }
+    query BlogPostBySlug(
+        $id: String!
+        $previousPostId: String
+        $nextPostId: String
+    ) {
+        site {
+            siteMetadata {
+                title
+            }
+        }
+        markdownRemark(id: { eq: $id }) {
+            id
+            excerpt(pruneLength: 160)
+            html
+            frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+                description
+                featuredImage {
+                    childImageSharp {
+                        fluid(maxWidth: 800) {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+            }
+        }
+        previous: markdownRemark(id: { eq: $previousPostId }) {
+            fields {
+                slug
+            }
+            frontmatter {
+                title
+            }
+        }
+        next: markdownRemark(id: { eq: $nextPostId }) {
+            fields {
+                slug
+            }
+            frontmatter {
+                title
+            }
+        }
     }
-    markdownRemark(id: { eq: $id }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-  }
 `

@@ -2,9 +2,8 @@
 title: Container Internet Access Or DNS Resolving Problem
 date: "2020-05-15T22:12:03.284Z"
 description: "Solving containers DNS resolving problem or internet access on CentOS."
+featuredImage: ./centos-docker.png
 ---
-
-![Docker on CentOS/RHEL](./centos-docker.png)
 
 ## Why docker container is unable to access internet or resolve DNS
 As the new release of CentOS 8 and RHEL 8 came out, docker package has been removed from the default package repository. 
@@ -82,14 +81,8 @@ The firewall is blocking `docker0` network interface. You can enable it by:
 ## Last words
 **If you are planning on using swarm or a docker created network, you might face the same problem again because they will use another network interface than `docker0`.** 
 
-
-
-
-#### Hope that helped!
+Hope that helped!
 
 **P.S. There is great news! Starting from 2020-12-08 Docker released a new version: [20.10](https://docs.docker.com/engine/release-notes/#20100).
 This solves all of this hassle.\
-Starting from this release we do not have to care about docker interfaces and firewalld problems anymore. Docker will add docker interfaces to firewalld docker zone automatically when creating a new network!**
-
-[More details check this post!]()
- 
+Starting from this release we do not have to care about docker interfaces and firewalld problems anymore. Docker will add docker interfaces to firewalld docker zone automatically when creating a new network!** 

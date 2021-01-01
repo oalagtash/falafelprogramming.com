@@ -60,7 +60,8 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
-  --falafel-color: #6cb537;
+  --falafel-color: #62a432;
+  --falafel-color-highcontrast: #4e8328;
 }
 
 /* HTML elements */
@@ -285,7 +286,7 @@ a:focus {
 }
 
 .post-list-item header {
-  color: var(--falafel-color);
+  color: var(--falafel-color-highcontrast);
   margin-bottom: var(--spacing-4);
 }
 
@@ -335,6 +336,10 @@ a:focus {
   text-align: center;
 }
 
+.footer {
+  text-align: center;
+}
+
 .about-avatar {
   min-width: 50px;
   border-radius: 100%;
@@ -342,7 +347,13 @@ a:focus {
 }
 
 a, a:hover, a:focus, a:active {
-  color: var(--falafel-color);
+  color: var(--falafel-color-highcontrast);
+}
+
+.icon {
+  height: 23px;
+  margin: 0px 10px 10px;
+
 }
 
 /* Media queries */

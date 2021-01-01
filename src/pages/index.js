@@ -55,7 +55,7 @@ const BlogIndex = ({ data, location }) => {
                   />
                 </section>
               </article>
-                <hr style={{color:"#6cb537"}}/>
+                <hr />
             </li>
           )
         })}

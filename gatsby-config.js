@@ -6,9 +6,11 @@ module.exports = {
       summary: `I am a software developer and DevOps engineer in Frankfurt. I enjoy programming, DevOps stuff, cycling and eating falafel. Also, I am crazy about containerizing any application I see.`,
     },
     description: `This blog is all about programming and DevOps. Here I share my knowledge, thoughts and real world use cases tutorials with you.`,
-    siteUrl: `https://falafelprogramming.com`,
+    siteUrl: `https://www.falafelprogramming.com`,
     social: {
-      linkedin: `oweis-al-agtash-b2010b101`,
+      linkedin: `https://www.linkedin.com/in/oweis-al-agtash-b2010b101`,
+      github: `https://github.com/oalagtash`,
+      email: `oweis.agtash@gmail.com`,
     },
   },
   plugins: [
@@ -60,18 +62,21 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Falafel Programming Blog by Oweis Alagtash`,
+        short_name: `FalafelProgramming`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#62a432`,
         display: `minimal-ui`,
         icon: `content/assets/falafelprogramming-logo.png`,
+        icon_options: {
+          purpose: `maskable`,
+        },
       },
     },
     `gatsby-plugin-react-helmet`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+
   ],
 }
