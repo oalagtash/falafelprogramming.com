@@ -5,9 +5,9 @@ import Img from "gatsby-image"
 export default function HeaderImage() {
   const data = useStaticQuery(graphql`
       query {
-          file(relativePath: { eq: "falafelprogramming-logo.png" }) {
+          file(relativePath: { eq: "falafelprogramming-logo.webp" }) {
               childImageSharp {
-                  fixed(height:75, quality: 95) {
+                  fixed(width: 75, height:75) {
                       ...GatsbyImageSharpFixed
                   }
             }

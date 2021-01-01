@@ -13,7 +13,7 @@ import SocialMedia from "./social-media-links"
 const About = () => {
   const data = useStaticQuery(graphql`
       query AboutQuery {
-          avatar: file(absolutePath: { regex: "/pic.png/" }) {
+          avatar: file(absolutePath: { regex: "/oweis.webp/" }) {
               childImageSharp {
                   fixed(width: 200, height: 200, quality: 95) {
                       ...GatsbyImageSharpFixed
