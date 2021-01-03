@@ -1,6 +1,6 @@
 ---
 title: Container Internet Access Or DNS Resolving Problem
-date: "2020-05-15T22:12:03.284Z"
+date: "2021-01-01T22:12:03.284Z"
 description: "Solving containers DNS resolving problem or internet access on CentOS."
 featuredImage: ./centos-docker.webp
 ---
