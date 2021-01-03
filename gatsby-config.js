@@ -68,7 +68,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#62a432`,
         display: `minimal-ui`,
-        icon: `content/assets/falafelprogramming-logo.png`,
+        icon: `content/assets/falafelprogramming-logo.webp`,
         icon_options: {
           purpose: `maskable`,
         },
