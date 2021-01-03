@@ -2,7 +2,7 @@
 title: Container Internet Access Or DNS Resolving Problem
 date: "2020-05-15T22:12:03.284Z"
 description: "Solving containers DNS resolving problem or internet access on CentOS."
-featuredImage: ./centos-docker.png
+featuredImage: ./centos-docker.webp
 ---
 
 ## Why docker container is unable to access internet or resolve DNS
