@@ -2,7 +2,7 @@
   "name": "falafel-programming",
   "private": true,
   "description": "Blog for programmers and DevOps",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Oweis Alagtash <oweis.agtash@gmail.com",
   "bugs": {
     "url": "https://to-be-implemented.soon"
@@ -37,7 +37,7 @@
   },
   "homepage": "https://falafelprogramming.com",
   "keywords": [
-    "blog-keyword"
+    "falafel-programming-blog"
   ],
   "license": "0BSD",
   "scripts": {
