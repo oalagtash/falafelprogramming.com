@@ -5,7 +5,7 @@ module.exports = {
       name: `Oweis Alagtash`,
       summary: `I am a software developer and DevOps engineer in Frankfurt. I enjoy programming, DevOps stuff, cycling and eating falafel. Also, I am crazy about containerizing any application I see.`,
     },
-    description: `This blog is all about programming and DevOps. Here I share my knowledge, thoughts and real world use cases tutorials with you.`,
+    description: `This blog is all about programming, DevOps and Machine Learning. Here I share my knowledge, thoughts real world use cases and tutorials with you. But you might stumble on off topic posts like a falafel recipe..`,
     siteUrl: `https://www.falafelprogramming.com`,
     social: {
       linkedin: `https://www.linkedin.com/in/oweis-al-agtash-b2010b101`,
@@ -55,7 +55,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.ANALYTICS_TRACK_ID,
+        // MUST BE ADDED anonymize: true,
+        // MUST BE ADDED respectDNT: true,
+
       },
     },
     `gatsby-plugin-feed`,
@@ -77,6 +80,5 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
-
   ],
 }

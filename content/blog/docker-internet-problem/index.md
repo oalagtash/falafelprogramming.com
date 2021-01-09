@@ -70,7 +70,8 @@ search example-net
 nameserver 10.0.xxx.xx
 ```
 
-If the file output from the host and within the container does not match then you should try to solve why docker engine not generating this resolve.conf file for containers. Sorry, no idea how is that :'D
+If the file output from the host and within the container does not match then you should try to solve why docker engine
+ not generating this resolve.conf file for containers. Sorry, no idea how is that :'D
 
 4. If you had the same outputs, then it is a firewall problem! 
 
@@ -79,10 +80,14 @@ The firewall is blocking `docker0` network interface. You can enable it by:
 > sudo firewall-cmd –permanent –zone=trusted –add-interface=docker0 && sudo firewall-cmd –reload
 ```
 ## Last words
-**If you are planning on using swarm or a docker created network, you might face the same problem again because they will use another network interface than `docker0`.** 
+**If you are planning on using swarm or a docker created network, you might face the same problem again because they 
+will use another network interface than `docker0`.** 
 
 Hope that helped!
 
-**P.S. There is great news! Starting from 2020-12-08 Docker released a new version: [20.10](https://docs.docker.com/engine/release-notes/#20100).
+**P.S. There is great news! Starting from 2020-12-08 Docker released a new version: 
+[20.10](https://docs.docker.com/engine/release-notes/#20100).
 This solves all of this hassle.\
-Starting from this release we do not have to care about docker interfaces and firewalld problems anymore. Docker will add docker interfaces to firewalld docker zone automatically when creating a new network!** 
+Starting from this release we do not have to care about docker interfaces and firewalld problems anymore. 
+Docker will add docker interfaces to firewalld docker zone automatically when creating a new network!** \
+[For how to upgrade check my other post!](https://www.falafelprogramming.com/install-upgrade-docker-centos)

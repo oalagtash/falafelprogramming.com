@@ -29,7 +29,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p style={{ color: "var(--falafel-color-highcontrast)" }}>{post.frontmatter.date}</p>
         </header>
-        <Img fluid={featuredImgFluid} itemProp="image"/>
+        <Img style={{marginBottom: "5px" }} fluid={featuredImgFluid} itemProp="image"/>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"

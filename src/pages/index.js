@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <About />
       <hr />
-      <h1 style={{textAlign: "center", color: "var(--falafel-color)", marginTop: "25px"}}>All Posts</h1>
+      <h1 style={{ textAlign: "center", color: "var(--falafel-color)", marginTop: "25px" }}>All Posts</h1>
       <hr />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -41,24 +41,35 @@ const BlogIndex = ({ data, location }) => {
                 itemScope
                 itemType="http://schema.org/Article"
               >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                <Link to={post.fields.slug} itemProp="url">
+                  <header>
+                    <h2 className="post-title">
                       <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt
-                    }}
-                    itemProp="description"
-                  />
-                </section>
+                    </h2>
+                    <small style={{ color: "var(--falafel-color-highcontrast)" }}>{post.frontmatter.date}</small>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: post.frontmatter.description || post.excerpt
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
+                  <div className="read-more">
+                    Read more
+                    <svg stroke="currentColor"
+                         fill="currentColor"
+                         stroke-width="0" viewBox="0 0 24 24"
+                         height="1em" width="1em"
+                         style={{transform: "translateY(3px)"}}
+                         xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+                  </svg>
+                  </div>
+                </Link>
               </article>
-                <hr />
+              <hr />
             </li>
           )
         })}
