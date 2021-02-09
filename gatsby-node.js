@@ -1,5 +1,5 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createRemoteFileNode, createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -51,25 +51,58 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           id: post.id,
           previousPostId,
-          nextPostId,
-        },
+          nextPostId
+        }
       })
     })
   }
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = async ({
+                                node,
+                                actions,
+                                store,
+                                cache,
+                                createNodeId,
+                                getNode
+                              }) => {
+
   const { createNodeField } = actions
+  const { createNode } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
 
+    // Create the slug for each post
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value
     })
+
+    // Check if post has a remote or a local image
+    if (isValidURL(node.frontmatter.featuredImage)) {
+
+      let fileNode = await createRemoteFileNode({
+        url: node.frontmatter.featuredImage, // string that points to the URL of the image
+        parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+        createNode, // helper function in gatsby-node to generate the node
+        createNodeId, // helper function in gatsby-node to generate the node id
+        cache, // Gatsby's cache
+        store // Gatsby's Redux store
+      })
+      // if the file was created, attach the new node to the parent node
+      if (fileNode) {
+        node.featuredImg___NODE = fileNode.id
+      }
+    }
+
+
   }
+
+  // TODO local image https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createSchemaCustomization
+  // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
+
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -81,6 +114,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   // Also explicitly define the Markdown frontmatter
   // This way the "MarkdownRemark" queries will return `null` even when no
   // blog posts are stored inside "content/blog" instead of returning an error
+  // TODO add other social links
   createTypes(`
     type SiteSiteMetadata {
       author: Author
@@ -100,16 +134,28 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
       fields: Fields
+      featuredImg: File @link(from: "featuredImg___NODE")
     }
 
     type Frontmatter {
       title: String
       description: String
       date: Date @dateformat
+      featuredImage: String
+      featuredImageAlt: String
     }
 
     type Fields {
       slug: String
     }
   `)
+}
+
+function isValidURL(str) {
+  try {
+    new URL(str)
+    return true
+  } catch {
+    return false
+  }
 }

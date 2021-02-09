@@ -12,7 +12,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
-  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  const featuredImgAlt = post.frontmatter.featuredImageAlt
+  let featuredImgFluid = post.featuredImg?.childImageSharp?.fixed
+
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -29,7 +31,9 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p style={{ color: "var(--falafel-color-highcontrast)" }}>{post.frontmatter.date}</p>
         </header>
-        <Img style={{marginBottom: "5px" }} fluid={featuredImgFluid} itemProp="image"/>
+        { featuredImgFluid !== null &&
+          <Img style={{marginBottom: "5px" }} fixed={featuredImgFluid} itemProp="image" alt={featuredImgAlt}/>
+        }
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
@@ -90,11 +94,12 @@ export const pageQuery = graphql`
                 title
                 date(formatString: "MMMM DD, YYYY")
                 description
-                featuredImage {
-                    childImageSharp {
-                        fluid(maxWidth: 800) {
-                            ...GatsbyImageSharpFluid
-                        }
+                featuredImageAlt
+            }
+            featuredImg {
+                childImageSharp {
+                    fixed(width: 600) {
+                        ...GatsbyImageSharpFixed
                     }
                 }
             }
