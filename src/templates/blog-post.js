@@ -13,8 +13,8 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
 
   const featuredImgAlt = post.frontmatter.featuredImageAlt
-  let featuredImgFluid = post.featuredImg?.childImageSharp?.fixed
-
+  const featuredImageCredit = post.frontmatter.featuredImageCredit
+  let featuredImgFluid = post.featuredImageToRetrieve?.childImageSharp?.fluid
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -31,8 +31,15 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p style={{ color: "var(--falafel-color-highcontrast)" }}>{post.frontmatter.date}</p>
         </header>
-        { featuredImgFluid !== null &&
-          <Img style={{marginBottom: "5px" }} fixed={featuredImgFluid} itemProp="image" alt={featuredImgAlt}/>
+        {featuredImgFluid !== null &&
+        <figure className="image-credit">
+          <Img style={{ marginBottom: "5px", borderRadius: "4px"}}
+               fluid={featuredImgFluid}
+               alt={featuredImgAlt}
+               title={featuredImgAlt}
+               itemProp="image"/>
+          <figcaption dangerouslySetInnerHTML={{ __html: featuredImageCredit}}/>
+        </figure>
         }
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -95,11 +102,12 @@ export const pageQuery = graphql`
                 date(formatString: "MMMM DD, YYYY")
                 description
                 featuredImageAlt
+                featuredImageCredit
             }
-            featuredImg {
+            featuredImageToRetrieve {
                 childImageSharp {
-                    fixed(width: 600) {
-                        ...GatsbyImageSharpFixed
+                    fluid(maxWidth: 600) {
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }

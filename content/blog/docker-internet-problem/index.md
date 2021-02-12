@@ -2,16 +2,17 @@
 title: Container Internet Access Or DNS Resolving Problem
 date: "2021-01-01T22:12:03.284Z"
 description: "Solving containers DNS resolving problem or internet access on CentOS."
-featuredImage: ./centos-docker.webp
+featuredImage: https://source.unsplash.com/Yrc4lmlOzPY/1600x900
+featuredImageAlt: Messed up wires
+featuredImageCredit: <span>Photo by <a href="https://unsplash.com/@michalmatlon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Michal Matlon</a> on <a href="https://unsplash.com/s/photos/internet-cables?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span><br> They probably have internet problems. Let's hope you're not connected through that... 
 ---
 
-## Why docker container is unable to access internet or resolve DNS
 As the new release of CentOS 8 and RHEL 8 came out, docker package has been removed from the default package repository. 
-On top of that, docker network interfaces are per default blocked by [firewalld](https://firewalld.org/).
+On top of that, docker network interfaces are per default **blocked by [firewalld](https://firewalld.org/)**.
 
 This results to containers not having an internet access. For example, containers are unable to update or download packages or ping google.com. Containers will also not be able to reach each other, even under the same network...
 
-So if the host does have an internet access, and the container doesn't, then it is most probably related to the firewall of the host.
+So if the host does have an internet access, and the container doesn't, then it is **probably related to the firewall** of the host.
 
 In this post we will make a quick troubleshoot, to see if it is a firewall problem and provide a fix for it. I am using CentOS 8 here. For other OS, you just need to know what are the commands alternatives.
 

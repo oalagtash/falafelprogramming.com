@@ -370,6 +370,16 @@ a, a:hover, a:focus, a:active {
 
 }
 
+.image-credit {
+    color: grey;
+    font-size: small;
+    font-family: sans-serif;
+    text-align: center;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-bottom: 50px;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {

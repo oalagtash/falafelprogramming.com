@@ -93,16 +93,10 @@ exports.onCreateNode = async ({
       })
       // if the file was created, attach the new node to the parent node
       if (fileNode) {
-        node.featuredImg___NODE = fileNode.id
+        node.featuredImageToRetrieve___NODE = fileNode.id
       }
     }
-
-
   }
-
-  // TODO local image https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createSchemaCustomization
-  // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
-
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -134,7 +128,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
       fields: Fields
-      featuredImg: File @link(from: "featuredImg___NODE")
+      featuredImageToRetrieve: File @link(from: "featuredImageToRetrieve___NODE")
     }
 
     type Frontmatter {
@@ -143,6 +137,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       featuredImage: String
       featuredImageAlt: String
+      featuredImageCredit: String
     }
 
     type Fields {

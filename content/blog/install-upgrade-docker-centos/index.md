@@ -2,7 +2,9 @@
 title: How to Install or Upgrade Docker on CentOS
 date: "2021-01-09T08:00:00.284Z"
 description: "Whether you want to install Docker on CentOS or you want to upgrade Docker engine to the latest version, this article will guide you through."
-featuredImage: ./install-upgrade-docker-centos.webp
+featuredImage: https://source.unsplash.com/xewrfLD8emE/1600x900
+featuredImageAlt: View of intermodal containers 
+featuredImageCredit: <span>Photo by <a href="https://unsplash.com/@chuttersnap?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">CHUTTERSNAP</a> on <a href="https://unsplash.com/s/photos/containers?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span><br> Imagine you have to update these containers' infrastructure!   
 ---
 
 Whether you want to install Docker on CentOS or you want to upgrade Docker engine to the latest version, this article
