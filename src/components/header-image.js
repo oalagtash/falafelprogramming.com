@@ -1,22 +1,17 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 export default function HeaderImage() {
-  const data = useStaticQuery(graphql`
-      query {
-          file(relativePath: { eq: "falafelprogramming-logo.webp" }) {
-              childImageSharp {
-                  fixed(width: 75, height:75) {
-                      ...GatsbyImageSharpFixed
-                  }
-            }
-          }
-      }
-  `)
 
-  return <Img
-    fixed={data.file.childImageSharp.fixed}
+  return <StaticImage
+    src="../images/falafelprogramming-logo.webp"
     alt="Falafel Programming blog"
+    placeholder="blurred"
+    trim="true"
+    duetone="true"
+    layout="fixed"
+    formats={["auto","webp","avif"]}
+    width={75}
+    height={75}
   />
 }

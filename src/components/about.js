@@ -7,19 +7,13 @@
 
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
 import SocialMedia from "./social-media-links"
+import { StaticImage } from "gatsby-plugin-image"
+
 
 const About = () => {
   const data = useStaticQuery(graphql`
       query AboutQuery {
-          avatar: file(absolutePath: { regex: "/oweis.webp/" }) {
-              childImageSharp {
-                  fixed(width: 200, height: 200, quality: 95) {
-                      ...GatsbyImageSharpFixed
-                  }
-              }
-          }
           site {
               siteMetadata {
                   author {
@@ -36,21 +30,24 @@ const About = () => {
 
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social
-  const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
     <div className="about">
       <div>
-        {avatar && (
-          <Image
-            fixed={avatar}
-            alt={author?.name || ``}
-            className="about-avatar"
-            imgStyle={{
-              borderRadius: `50%`
-            }}
-          />
-        )}
+        <StaticImage
+          src="../images/oweis.webp"
+          alt={author?.name || ``}
+          className="about-avatar"
+          imgStyle={{
+            borderRadius: `50%`
+          }}
+          placeholder="blurred"
+          trim="true"
+          duetone="true"
+          formats={["auto", "webp", "avif"]}
+          width={200}
+          height={200}
+        />
       </div>
       <SocialMedia />
       <div>

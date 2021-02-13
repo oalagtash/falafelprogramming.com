@@ -1,5 +1,5 @@
 import React from "react"
-import GatsbyIcon from "./icons/GatsbyIcon.png"
+import GatsbyIcon from "../images/GatsbyIcon.png"
 import SocialMedia from "./social-media-links"
 
 const Footer = () => {

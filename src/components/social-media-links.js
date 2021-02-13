@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import GitHubIcon from "./icons/GitHubIcon.png"
-import LinkedInIcon from "./icons/LinkdinIcon.png"
-import GmailIcon from "./icons/GmailIcon.png"
+import GitHubIcon from "../images/GitHubIcon.png"
+import LinkedInIcon from "../images/LinkdinIcon.png"
+import GmailIcon from "../images/GmailIcon.png"
 
 const SocialMedia = () => {
   const data = useStaticQuery(graphql`
