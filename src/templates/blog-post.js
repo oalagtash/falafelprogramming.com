@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
@@ -26,6 +28,13 @@ const BlogPostTemplate = ({ data, location }) => {
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
+        sx={{
+          // this uses the value from `theme.space[4]`
+          padding: 4,
+          // these use values from `theme.colors`
+          color: "background",
+          backgroundColor: "primary",
+        }}
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>

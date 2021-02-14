@@ -81,5 +81,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-theme-ui`,
+      options: {
+        preset: "@theme-ui/preset-tosh",
+      },
+    },
   ],
 }
