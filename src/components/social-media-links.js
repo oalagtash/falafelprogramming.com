@@ -23,27 +23,23 @@ const SocialMedia = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-      <div>
-        <a
-          href={`mailto: ${social?.email || ``}`}
-          title="Email Me"
-        >
-          <img className="icon" src={GmailIcon} alt="Gmail" />
-        </a>
-        <a
-          href={`${social?.github || ``}`}
-          title="My open source code on GitHub"
-        >
-          <img className="icon" src={GitHubIcon} alt="GitHub" style={{height: "25px"}}/>
-        </a>
-        <a
-          href={`${social?.linkedin || ``}`}
-          title="My LinkedIn Profile"
-        >
-          <img className="icon" src={LinkedInIcon} alt="LinkedIn" />
-        </a>
-      </div>
-        )
+    <div>
+      <a href={`mailto: ${social?.email || ``}`} title="Email Me">
+        <img className="icon" src={GmailIcon} alt="Gmail" />
+      </a>
+      <a href={`${social?.github || ``}`} title="My open source code on GitHub">
+        <img
+          className="icon"
+          src={GitHubIcon}
+          alt="GitHub"
+          style={{ height: "30px", margin: "0 5px 7px" }}
+        />
+      </a>
+      <a href={`${social?.linkedin || ``}`} title="My LinkedIn Profile">
+        <img className="icon" src={LinkedInIcon} alt="LinkedIn" />
+      </a>
+    </div>
+  )
 }
 
 export default SocialMedia

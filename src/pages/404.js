@@ -1,3 +1,4 @@
+import { Styled } from "theme-ui"
 import React from "react"
 import { graphql } from "gatsby"
 
@@ -10,9 +11,13 @@ const NotFoundPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="404: Not Found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-      <a href="https://www.falafelprogramming.com">Go back home</a>
+      <Styled.h1>404: Not Found</Styled.h1>
+      <Styled.p>
+        You just hit a route that doesn&#39;t exist... the sadness.
+      </Styled.p>
+      <Styled.a href="https://www.falafelprogramming.com">
+        Go back home
+      </Styled.a>
     </Layout>
   )
 }

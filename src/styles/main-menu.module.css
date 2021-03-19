@@ -3,25 +3,16 @@
     padding-bottom: 20px;
     padding-top: 10px;
     margin: var(--spacing-0) auto;
-    max-width: 50rem;
-
+    max-width: 62rem;
 }
 
 .mainMenu a {
     float: left;
-    color: var(--falafel-color);
     text-align: center;
     text-decoration: none;
     border-radius: 4px;
-    font-family: var(--font-heading);
     line-height: var(--lineHeight-tight);
     letter-spacing: -0.025em;
-    font-weight: 700;
-    font-size: var(--fontSize-3);
-}
-
-.mainMenu ul {
-
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
@@ -32,24 +23,25 @@
 
 .mainMenu-websiteNameOne {
     text-align: left;
+    color: var(--falafel-color);
 
 }
 
 .mainMenu-websiteNameTwo {
     text-align: left;
     line-height: 16px;
+    color: var(--falafel-color);
+
 }
 
 .mainMenu-websiteNameContainer {
     float: left;
     margin: 11px;
-    font-family: var(--font-heading);
     line-height: var(--lineHeight-tight);
     letter-spacing: -0.025em;
     font-weight: 750;
     font-size: var(--fontSize-3);
 }
-
 
 /* Style the active/current link*/
 .mainMenu a.active {
