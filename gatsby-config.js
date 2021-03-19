@@ -3,30 +3,30 @@ module.exports = {
     title: `Falafel Programming Blog`,
     author: {
       name: `Oweis Alagtash`,
-      summary: `I am a software developer and DevOps engineer in Frankfurt. I enjoy programming, DevOps stuff, cycling and eating falafel. Also, I am crazy about containerizing any application I see.`,
+      summary: `I am a software developer and DevOps engineer in Frankfurt. I enjoy programming, DevOps stuff, cycling and eating falafel. Also, I am crazy about containerizing any application I see.`
     },
     description: `This blog is all about programming, DevOps and Machine Learning. Here I share my knowledge, thoughts real world use cases and tutorials with you. But you might stumble on off topic posts like a falafel recipe..`,
     siteUrl: `https://www.falafelprogramming.com`,
     social: {
       linkedin: `https://www.linkedin.com/in/oweis-al-agtash-b2010b101`,
       github: `https://github.com/oalagtash`,
-      email: `oweis.agtash@gmail.com`,
-    },
+      email: `oweis.agtash@gmail.com`
+    }
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
+        name: `assets`
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -36,20 +36,20 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
-            },
+              maxWidth: 630
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
+          `gatsby-remark-smartypants`
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -57,13 +57,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.ANALYTICS_TRACK_ID,
+        trackingId: process.env.ANALYTICS_TRACK_ID
         // MUST BE ADDED anonymize: true,
         // MUST BE ADDED respectDNT: true,
 
-      },
+      }
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -75,18 +74,13 @@ module.exports = {
         display: `minimal-ui`,
         icon: `content/assets/falafelprogramming-logo.webp`,
         icon_options: {
-          purpose: `maskable`,
-        },
-      },
+          purpose: `maskable`
+        }
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-theme-ui`,
-      options: {
-        preset: "@theme-ui/preset-tosh",
-      },
-    },
-  ],
+    `gatsby-plugin-theme-ui`
+  ]
 }
