@@ -1,36 +1,31 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
+/** @jsx jsx */
+import { jsx, Styled } from "theme-ui"
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/oweis.webp/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50, quality: 95) {
-            ...GatsbyImageSharpFixed
+      query BioQuery {
+          avatar: file(absolutePath: { regex: "/oweis.webp/" }) {
+              childImageSharp {
+                  fixed(width: 50, height: 50, quality: 95) {
+                      ...GatsbyImageSharpFixed
+                  }
+              }
           }
-        }
+          site {
+              siteMetadata {
+                  author {
+                      name
+                      summary
+                  }
+                  social {
+                      linkedin
+                  }
+              }
+          }
       }
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            linkedin
-          }
-        }
-      }
-    }
   `)
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
@@ -47,15 +42,16 @@ const Bio = () => {
           alt={author?.name || ``}
           className="bio-avatar"
           imgStyle={{
-            borderRadius: `50%`,
+            borderRadius: `50%`
           }}
         />
       )}
       {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong>. <br/> {author?.summary || null}
+        <Styled.p>
+          Written by <strong>{author.name}</strong>. <br />{" "}
+          {author?.summary || null}
           {` `}
-        </p>
+        </Styled.p>
       )}
     </div>
   )

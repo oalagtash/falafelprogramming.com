@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, Styled } from "theme-ui"
 import React from "react"
 import { graphql, Link } from "gatsby"
 
@@ -14,11 +16,11 @@ const BlogIndex = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
         <About />
-        <p>
+        <Styled.p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
           gatsby-config.js).
-        </p>
+        </Styled.p>
       </Layout>
     )
   }
@@ -28,49 +30,48 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <About />
       <hr />
-      <h1 style={{ textAlign: "center", color: "var(--falafel-color)", marginTop: "25px" }}>All Posts</h1>
+      <Styled.h1
+        sx={{
+          textAlign: "center",
+          color: "var(--falafel-color)",
+          marginTop: "25px",
+          fontWeight: "700"
+        }}
+      >
+        All Posts
+      </Styled.h1>
       <hr />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
+            <Styled.li key={post.fields.slug}>
               <article
                 className="post-list-item"
                 itemScope
                 itemType="http://schema.org/Article"
               >
-                <Link to={post.fields.slug} itemProp="url">
+                <Styled.a sx={{ color: "text" }} as={Link} to={post.fields.slug} itemProp="url">
                   <header>
-                    <h2 className="post-title">
+                    <Styled.h2 sx={{ color: "inherit" }}>
                       <span itemProp="headline">{title}</span>
-                    </h2>
-                    <small style={{ color: "var(--falafel-color-highcontrast)" }}>{post.frontmatter.date}</small>
+                    </Styled.h2>
+                    <small>{post.frontmatter.date}</small>
                   </header>
                   <section>
-                    <p
+                    <Styled.p
                       dangerouslySetInnerHTML={{
                         __html: post.frontmatter.description || post.excerpt
                       }}
                       itemProp="description"
                     />
                   </section>
-                  <div className="read-more">
-                    Read more
-                    <svg stroke="currentColor"
-                         fill="currentColor"
-                         stroke-width="0" viewBox="0 0 24 24"
-                         height="1em" width="1em"
-                         style={{transform: "translateY(3px)"}}
-                         xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                  </svg>
-                  </div>
-                </Link>
+                  <div sx={{ fontWeight: "heading" }}>Read more →</div>
+                </Styled.a>
               </article>
               <hr />
-            </li>
+            </Styled.li>
           )
         })}
       </ol>

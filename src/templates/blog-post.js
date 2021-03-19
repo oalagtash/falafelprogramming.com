@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, Styled } from "theme-ui"
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
@@ -27,20 +29,26 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p style={{ color: "var(--falafel-color-highcontrast)" }}>{post.frontmatter.date}</p>
+        <header style={{ textAlign: "center" }}>
+          <Styled.h1 itemProp="headline">{post.frontmatter.title}</Styled.h1>
+          <Styled.p style={{ color: "var(--falafel-color-highcontrast)" }}>
+            {post.frontmatter.date}
+          </Styled.p>
         </header>
-        {featuredImgFluid !== null &&
-        <figure className="image-credit">
-          <Img style={{ marginBottom: "5px", borderRadius: "4px"}}
-               fluid={featuredImgFluid}
-               alt={featuredImgAlt}
-               title={featuredImgAlt}
-               itemProp="image"/>
-          <figcaption dangerouslySetInnerHTML={{ __html: featuredImageCredit}}/>
-        </figure>
-        }
+        {featuredImgFluid !== null && (
+          <figure className="image-credit">
+            <Img
+              style={{ marginBottom: "5px", borderRadius: "4px" }}
+              fluid={featuredImgFluid}
+              alt={featuredImgAlt}
+              title={featuredImgAlt}
+              itemProp="image"
+            />
+            <figcaption
+              dangerouslySetInnerHTML={{ __html: featuredImageCredit }}
+            />
+          </figure>
+        )}
         <MDXRenderer itemProp="articleBody">{post.body}</MDXRenderer>
         <hr />
         <footer>
@@ -48,7 +56,7 @@ const BlogPostTemplate = ({ data, location }) => {
         </footer>
       </article>
       <nav className="blog-post-nav">
-        <ul
+        <Styled.ul
           style={{
             display: `flex`,
             flexWrap: `wrap`,
@@ -57,21 +65,21 @@ const BlogPostTemplate = ({ data, location }) => {
             padding: 0
           }}
         >
-          <li>
+          <li style={{ maxWidth: "300px", textAlign: "left" }}>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Styled.a as={Link} to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
-              </Link>
+              </Styled.a>
             )}
           </li>
-          <li>
+          <li style={{ maxWidth: "300px", textAlign: "right" }}>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Styled.a as={Link} to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
-              </Link>
+              </Styled.a>
             )}
           </li>
-        </ul>
+        </Styled.ul>
       </nav>
     </Layout>
   )

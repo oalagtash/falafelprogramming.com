@@ -11,7 +11,7 @@
     --maxWidth-3xl: 48rem;
     --maxWidth-4xl: 56rem;
     --maxWidth-full: "100%";
-    --maxWidth-wrapper: var(--maxWidth-2xl);
+    --maxWidth-wrapper: var(--maxWidth-3xl);
     --spacing-px: "1px";
     --spacing-0: 0;
     --spacing-1: 0.25rem;
@@ -180,11 +180,6 @@ ol {
     list-style-image: none;
 }
 
-ul li,
-ol li {
-    padding-left: var(--spacing-0);
-    margin-bottom: calc(var(--spacing-8) / 2);
-}
 
 li > p {
     margin-bottom: calc(var(--spacing-8) / 2);
@@ -274,16 +269,6 @@ a:focus {
 
 .post-list-item a {
     text-decoration-line: none;
-    color: #1a202c;
-}
-
-.post-title {
-    color: var(--color-home-post-heading);
-}
-
-.post-list-item a:hover {
-    --color-home-post-heading: var(--falafel-color);
-    color: var(--falafel-color);
 }
 
 .post-list-item h2 {
@@ -294,15 +279,6 @@ a:focus {
 
 .post-list-item header {
     margin-bottom: var(--spacing-4);
-}
-
-
-.read-more {
-    display: inline-block;
-    position: relative;
-    font-weight: 500;
-    color: var(--falafel-color);
-    border-bottom: 1px solid #4e8328;
 }
 
 .header-link-home {
@@ -345,11 +321,6 @@ a:focus {
     margin-bottom: var(--spacing-8);
 }
 
-.about {
-    margin-bottom: 75px;
-    text-align: center;
-}
-
 .footer {
     text-align: center;
 }
@@ -360,14 +331,16 @@ a:focus {
     margin-bottom: var(--spacing-5);
 }
 
-a, a:hover, a:focus, a:active {
-    color: var(--falafel-color-highcontrast);
+a,
+a:hover,
+a:focus,
+a:active {
+    color: var(--falafel-color);
 }
 
 .icon {
     height: 23px;
     margin: 0px 10px 10px;
-
 }
 
 .image-credit {
